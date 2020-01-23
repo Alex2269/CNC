@@ -135,12 +135,18 @@
   #define SPINDLE_OCR_REGISTER      OCR2A
   #define SPINDLE_COMB_BIT	        COM2A1
 
-  // Prescaled, 8-bit Fast PWM mode.
-  #define SPINDLE_TCCRA_INIT_MASK   ((1<<WGM20) | (1<<WGM21))  // Configures fast PWM mode.
-  // #define SPINDLE_TCCRB_INIT_MASK   (1<<CS20)               // Disable prescaler -> 62.5kHz
-  // #define SPINDLE_TCCRB_INIT_MASK   (1<<CS21)               // 1/8 prescaler -> 7.8kHz (Used in v0.9)
-  // #define SPINDLE_TCCRB_INIT_MASK   ((1<<CS21) | (1<<CS20)) // 1/32 prescaler -> 1.96kHz
-  #define SPINDLE_TCCRB_INIT_MASK      (1<<CS22)               // 1/64 prescaler -> 0.98kHz (J-tech laser)
+  // Prescaled, 8-bit Fast PWM mode beg.
+  // #define SPINDLE_TCCRA_INIT_MASK   ((1<<WGM20) | (1<<WGM21)) // Configures fast PWM mode.
+  // #define SPINDLE_TCCRB_INIT_MASK   (1<<CS20)                 // Disable prescaler -> 62.5kHz
+  // #define SPINDLE_TCCRB_INIT_MASK   (1<<CS21)                 // 1/8 prescaler -> 7.8kHz (Used in v0.9)
+  // #define SPINDLE_TCCRB_INIT_MASK   ((1<<CS21) | (1<<CS20))   // 1/32 prescaler -> 1.96kHz
+  // #define SPINDLE_TCCRB_INIT_MASK   (1<<CS22)                 // 1/64 prescaler -> 0.98kHz (J-tech laser)
+  // Prescaled, 8-bit Fast PWM mode end.
+
+  // Prescaled, 8-bit Fast PWM mode beg.
+  #define SPINDLE_TCCRA_INIT_MASK   ((1<<WGM20) | (1<<WGM22))  // Configures fast PWM mode.
+  #define SPINDLE_TCCRB_INIT_MASK   (1<<CS20)                  // Disable prescaler -> 31.25kHz (NEJE laser)
+  // Prescaled, 8-bit Fast PWM mode end.
 
   // NOTE: On the 328p, these must be the same as the SPINDLE_ENABLE settings.
   #define SPINDLE_PWM_DDR	  DDRB
