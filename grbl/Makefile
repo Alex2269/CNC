@@ -57,6 +57,7 @@ OBJECTS = $(addprefix $(BUILDDIR)/,$(notdir $(SOURCE:.c=.o)))
 all:	grbl.hex
 
 $(BUILDDIR)/%.o: $(SOURCEDIR)/%.c
+	-mkdir -p $(dir $@)
 	$(COMPILE) -MMD -MP -c $< -o $@
 
 .S.o:
