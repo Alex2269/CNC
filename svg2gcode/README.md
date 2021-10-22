@@ -12,5 +12,5 @@ No extra needed libraries.
 
 make
 
-./svg2gcode round_rect.svg round_rect.gc
+./svg2gcode round_rect.svg round_rect.nc
 
