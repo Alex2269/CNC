@@ -10,7 +10,3 @@ Tested on Linux, OS X and Win7. To change the inits and and other needed g-codes
 No extra needed libraries.
 
 
-make
-
-./svg2gcode round_rect.svg round_rect.nc
-

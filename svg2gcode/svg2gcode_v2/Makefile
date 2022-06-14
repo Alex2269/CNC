@@ -1,5 +1,5 @@
 
-TARGET = svg2gcode
+TARGET = application
 
 # debug build?
 DEBUG = 0
@@ -46,6 +46,7 @@ AS_DEFS =
 
 # C defines
 C_DEFS +=
+# C_DEFS += '-D GLEW_STATIC'
 # C_DEFS += '-D __align(value)=__attribute__((aligned(value)))'
 # C_DEFS += '-D __forceinline=__attribute__((always_inline))'
 # C_DEFS += '-D __weak=__attribute__((weak))'
@@ -78,8 +79,10 @@ CPPFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) $(CXXFLAGS_STD)
 LIBDIR =
 LIBS =  -lc -lm
 # LIBS += -lglut /usr/lib/x86_64-linux-gnu/libGL.so
-LIBS += -lGLU
-LIBS += -lGL -lXi -lXext -lX11
+# LIBS += -lCORE -lGLEW
+# LIBS += -lglfw -lglut
+# LIBS += -lGLU
+# LIBS += -lGL -lXi -lXext -lX11
 
 LDFLAGS +=  $(LIBDIR) $(LIBS)
 LDFLAGS += -lgcc
@@ -123,8 +126,9 @@ $(BUILD_APP_DIR)/$(TARGET).elf: $(OBJECTS) Makefile | $(BUILD_APP_DIR)
 	@echo "\n ${green} [linking:] ${YELLOW} $@ ${NC}"
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(SZ) $@ --format=Berkeley
-	cp $(BUILD_APP_DIR)/$(TARGET).elf ./$(TARGET)
-#	$(SZ) $@ --format=SysV --radix=16
+	cp $(BUILD_APP_DIR)/$(TARGET).elf ./
+	# $(BUILD_APP_DIR)/$(TARGET).elf
+	# $(SZ) $@ --format=SysV --radix=16
 
 $(BUILD_APP_DIR)/%.hex: $(BUILD_APP_DIR)/%.elf | $(BUILD_APP_DIR)
 	$(HEX) $< $@
