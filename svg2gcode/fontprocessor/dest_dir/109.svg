@@ -1,0 +1,31 @@
+<svg xmlns='http://www.w3.org/2000/svg'
+xmlns:xlink='http://www.w3.org/1999/xlink'
+viewBox = '64 -512 448 512'>
+ <path d = '
+M 64 -512
+Q 64 -512, 64 0
+L 128 0
+L 128 -448
+L 256 -448
+L 256 0
+L 320 0
+L 320 -448
+L 256 -448
+L 256 -512
+L 64 -512
+M 448 -448
+L 448 0
+L 512 0
+L 512 -448
+L 448 -448
+M 320 -448
+L 448 -448
+L 448 -512
+L 320 -512
+L 320 -448
+
+'
+ fill='none'
+ stroke='black'
+ style='fill:#add187'/>
+</svg>
