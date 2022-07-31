@@ -1,5 +1,5 @@
 
-TARGET = application
+TARGET = svg2gcode
 
 # debug build?
 DEBUG = 0
@@ -126,8 +126,8 @@ $(BUILD_APP_DIR)/$(TARGET).elf: $(OBJECTS) Makefile | $(BUILD_APP_DIR)
 	@echo "\n ${green} [linking:] ${YELLOW} $@ ${NC}"
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(SZ) $@ --format=Berkeley
-	cp $(BUILD_APP_DIR)/$(TARGET).elf ./
-	./$(BUILD_APP_DIR)/$(TARGET).elf
+	cp $(BUILD_APP_DIR)/$(TARGET).elf ./$(TARGET)
+	./$(TARGET)
 #	$(SZ) $@ --format=SysV --radix=16
 
 $(BUILD_APP_DIR)/%.hex: $(BUILD_APP_DIR)/%.elf | $(BUILD_APP_DIR)
@@ -150,7 +150,7 @@ $(BUILD_ASM_DIR):
 #######################################
 clean:
 	-rm -fR $(BUILD_DIR)
-	rm -f   $(TARGET).elf
+	rm -f   $(TARGET)
 
 -include $(wildcard $(BUILD_DIR)/*.d)
 

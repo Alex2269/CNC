@@ -9,4 +9,9 @@ The paths are optimized to minimize unnecessary movements of the cutter or whate
 Tested on Linux, OS X and Win7. To change the inits and and other needed g-codes, just change the #defines and compile.
 No extra needed libraries.
 
+use:
+./svg2gcode -h
+./svg2gcode -B index.svg index.gcode
 
+olline simulator:
+https://gcodetutor.com/cnc-program-simulator.html
